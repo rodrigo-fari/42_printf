@@ -6,11 +6,11 @@
 /*   By: rde-fari <rde-fari@student.42poto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:33:02 by rde-fari          #+#    #+#             */
-/*   Updated: 2024/05/13 19:00:46 by rde-fari         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:57:20 by rde-fari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {

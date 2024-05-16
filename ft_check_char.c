@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_char.c                                     :+:      :+:    :+:   */
+/*   ft_check_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rde-fari <rde-fari@student.42poto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 19:01:00 by rde-fari          #+#    #+#             */
-/*   Updated: 2024/05/13 19:01:02 by rde-fari         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:56:27 by rde-fari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_check_char(const char *format, va_list ap, int *total)
 {
@@ -27,6 +27,8 @@ void	ft_check_char(const char *format, va_list ap, int *total)
 				ft_intncount(ap, *format, total);
 			else if (*format == 'x' || *format == 'X')
 				ft_hexapplier(*format, va_arg(ap, unsigned int), total);
+			else if (*format == 'p')
+				ft_ptrhex(*format, va_arg(ap, unsigned long), total);
 			else if (*format == '%')
 			{
 				write(1, "%", 1);

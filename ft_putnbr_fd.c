@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexapplier.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rde-fari <rde-fari@student.42poto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 12:28:09 by rde-fari          #+#    #+#             */
-/*   Updated: 2024/05/16 13:56:33 by rde-fari         ###   ########.fr       */
+/*   Created: 2024/04/24 14:20:36 by rde-fari          #+#    #+#             */
+/*   Updated: 2024/05/16 14:02:36 by rde-fari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_hexapplier(char format, unsigned long num, int *total)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char			*hex;
-	unsigned int	j;
+	char	num;
 
-	if (format == 'X')
-		hex = "0123456789ABCDEF";
-	else
-		hex = "0123456789abcdef";
-	if (num >= 16)
-		ft_hexapplier(format, num / 16, total);
-	j = num % 16;
-	ft_putncount(hex[j], total);
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		n = n * (-1);
+		write(fd, "-", 1);
+	}
+	if (n > 9)
+		ft_putnbr_fd(n / 10, fd);
+	num = (n % 10) + 48;
+	write(fd, &num, 1);
 }

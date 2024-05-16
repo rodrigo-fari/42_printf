@@ -6,11 +6,11 @@
 /*   By: rde-fari <rde-fari@student.42poto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 12:24:33 by rde-fari          #+#    #+#             */
-/*   Updated: 2024/05/16 12:26:10 by rde-fari         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:57:36 by rde-fari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_unsint(unsigned int num, int *total)
 {

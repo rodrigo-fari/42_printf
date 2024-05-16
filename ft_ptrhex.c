@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexapplier.c                                    :+:      :+:    :+:   */
+/*   ft_ptrhex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rde-fari <rde-fari@student.42poto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 12:28:09 by rde-fari          #+#    #+#             */
-/*   Updated: 2024/05/16 13:56:33 by rde-fari         ###   ########.fr       */
+/*   Created: 2024/05/16 12:55:50 by rde-fari          #+#    #+#             */
+/*   Updated: 2024/05/16 16:16:44 by rde-fari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_hexapplier(char format, unsigned long num, int *total)
+void	ft_ptrhex(char format, unsigned long num, int *total)
 {
-	char			*hex;
-	unsigned int	j;
-
-	if (format == 'X')
-		hex = "0123456789ABCDEF";
-	else
-		hex = "0123456789abcdef";
-	if (num >= 16)
-		ft_hexapplier(format, num / 16, total);
-	j = num % 16;
-	ft_putncount(hex[j], total);
+	if (format == 'p' && num == 0)
+	{
+		ft_strncount("(nil)", total);
+		return ;
+	}
+	ft_strncount("0x", total);
+	ft_hexapplier(format, num, total);
 }
