@@ -25,6 +25,8 @@ void	ft_check_char(const char *format, va_list ap, int *total)
 				ft_strncount(va_arg(ap, char *), total);
 			else if (*format == 'd' || *format == 'i' || *format == 'u')
 				ft_intncount(ap, *format, total);
+			else if (*format == 'x' || *format == 'X')
+				ft_hexapplier(*format, va_arg(ap, unsigned int), total);
 			else if (*format == '%')
 			{
 				write(1, "%", 1);
